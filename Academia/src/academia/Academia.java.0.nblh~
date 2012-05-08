@@ -1,0 +1,2345 @@
+package academia;
+
+import javax.swing.JOptionPane;
+import java.util.Calendar;
+import javax.swing.JDialog;
+import java.io.FileOutputStream;
+import org.apache.poi.hssf.usermodel.HSSFCell;
+import org.apache.poi.hssf.usermodel.HSSFRichTextString;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+
+public class Academia extends javax.swing.JFrame {
+Calendar c = Calendar.getInstance();
+String D,M,A;
+boolean alumno,administrativa,docente;
+int DayofWeek,WeekofMonth;
+int ColumnAntAux,ColumnSigAux,MesAux,AAux;
+int prueba;
+String campos;
+    public Academia() {
+        initComponents();
+        setLocationRelativeTo(null);
+        this.setTitle("Academia S.A");
+        
+        alumno=false;
+        administrativa=false;
+        docente=false;
+        
+        D=Integer.toString(c.get(Calendar.DATE));
+        M=Integer.toString(c.get(Calendar.MONTH));
+        A=Integer.toString(c.get(Calendar.YEAR));
+        MesAux=Integer.parseInt(M);
+        AAux=Integer.parseInt(A);
+        DayofWeek=c.get(Calendar.DAY_OF_WEEK);
+        cambiodedia();
+        WeekofMonth=c.get(Calendar.WEEK_OF_MONTH);
+        
+        lblAsistenciaAD.setVisible(false);
+        tblAsistencia.setVisible(false);
+        ScrollAsistencia.setVisible(false);
+        txtCodigo.setVisible(false);
+        lblCodigo.setVisible(false);
+        txtNombreAsis.setVisible(false);
+        lblNombreAsis.setVisible(false);
+        txtApellidoPatAsis.setVisible(false);
+        lblPreparacionAsis.setVisible(false);
+        btnRegresar.setVisible(false);
+        lblApellidoPatAsis.setVisible(false);
+        txtApellidoMatAsis.setVisible(false);
+        lblApellidoMatAsis.setVisible(false);
+        txtPreparacionAsis.setVisible(false);
+        lblSalonAsis.setVisible(false);
+        txtSalonAsis.setVisible(false);
+        lblMes.setVisible(false);
+        lblModoBusqueda.setVisible(false);
+        cbxModoBusqueda.setVisible(false);
+        
+        btnRegresarD.setVisible(false);
+        btnLimpiar.setVisible(false);
+        btnBusqueda.setVisible(false);
+        btnFaltantes.setVisible(false);
+        btnAnterior.setVisible(false);
+        btnSiguiente.setVisible(false);
+        btnActual.setVisible(false);
+                
+        lblNCodigoD.setVisible(false);
+        txtRCodigo.setVisible(false);
+        lblNNombreD.setVisible(false);
+        txtRNombre.setVisible(false);
+        lblNApellidoPatD.setVisible(false);
+        txtRApellidoPat.setVisible(false);
+        lblNApellidoMatD.setVisible(false);
+        txtRApellidoMat.setVisible(false);
+        lblNNacimientoD.setVisible(false);
+        txtRNacimiento.setVisible(false);
+        lblNDireccionD.setVisible(false);
+        txtRDireccion1.setVisible(false);
+        txtRDireccion2.setVisible(false);
+        lblNTelefonoD.setVisible(false);
+        txtRTelefono.setVisible(false);
+        lblNCorreoD.setVisible(false);
+        txtRCorreo.setVisible(false);
+        lblNRucD.setVisible(false);
+        txtRucGH.setVisible(false);
+        lblNSueldoHoraD.setVisible(false);
+        txtRSueldoHora.setVisible(false);
+        lblNServicioD.setVisible(false);
+        cbxRServicio.setVisible(false);
+        lblNMateriasD.setVisible(false);
+        cbxRMaterias.setVisible(false);
+        SANMateriasD.setVisible(false);
+        txtRMaterias.setVisible(false);
+        lblNRegistroD.setVisible(false);
+        lblMatAsignadasD.setVisible(false);
+        btnNRegistrarD.setVisible(false);
+        
+        lblDUltNotaObtA.setVisible(false);
+        txtDUltNotaObtA.setVisible(false);
+        btnDVerNotasA.setVisible(false);
+        
+        lblAlumnosDR.setVisible(false);
+        lblNCodigoA.setVisible(false);
+        txtNCodigoA.setVisible(false);
+        lblNNombreA.setVisible(false);
+        txtNNombreA.setVisible(false);
+        lblNApellidoPatA.setVisible(false);
+        txtNApellidoPatA.setVisible(false);
+        lblNApellidoMatA.setVisible(false);
+        txtNApellidoMatA.setVisible(false);
+        lblNNacimientoA.setVisible(false);
+        txtNNacimientoA.setVisible(false);
+        lblNDireccionA.setVisible(false);
+        txtNDireccion1A.setVisible(false);
+        txtNDireccion2A.setVisible(false);
+        lblNTelefonoA.setVisible(false);
+        txtNTelefonoA.setVisible(false);
+        lblNCorreoA.setVisible(false);
+        txtNCorreoA.setVisible(false);
+        lblNPreparacionA.setVisible(false);
+        cbxNPreparacionA.setVisible(false);
+        txtDPreparacionA.setVisible(false);
+        btnRegistrarA.setVisible(false);
+        btnRegresarA.setVisible(false);
+        
+    }
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        pnlPestañas = new javax.swing.JTabbedPane();
+        pnlBienvenido = new javax.swing.JPanel();
+        jLayeredPane6 = new javax.swing.JLayeredPane();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        pnlRegistro = new javax.swing.JPanel();
+        jLayeredPane2 = new javax.swing.JLayeredPane();
+        btnRAlumnos = new javax.swing.JButton();
+        lblDocentesD = new javax.swing.JLabel();
+        btnRDocente = new javax.swing.JButton();
+        btnRegresarD = new javax.swing.JButton();
+        lblNCodigoD = new javax.swing.JLabel();
+        lblNNombreD = new javax.swing.JLabel();
+        lblNSueldoHoraD = new javax.swing.JLabel();
+        lblNMateriasD = new javax.swing.JLabel();
+        cbxRMaterias = new javax.swing.JComboBox();
+        SANMateriasD = new javax.swing.JScrollPane();
+        txtRMaterias = new javax.swing.JTextArea();
+        lblNServicioD = new javax.swing.JLabel();
+        cbxRServicio = new javax.swing.JComboBox();
+        lblNRegistroD = new javax.swing.JLabel();
+        lblMatAsignadasD = new javax.swing.JLabel();
+        lblNApellidoMatD = new javax.swing.JLabel();
+        lblNApellidoPatD = new javax.swing.JLabel();
+        lblNDireccionD = new javax.swing.JLabel();
+        lblNTelefonoD = new javax.swing.JLabel();
+        lblNCorreoD = new javax.swing.JLabel();
+        lblNRucD = new javax.swing.JLabel();
+        txtRCodigo = new javax.swing.JTextField();
+        txtRNombre = new javax.swing.JTextField();
+        txtRApellidoPat = new javax.swing.JTextField();
+        txtRApellidoMat = new javax.swing.JTextField();
+        txtRDireccion1 = new javax.swing.JTextField();
+        txtRTelefono = new javax.swing.JTextField();
+        txtRCorreo = new javax.swing.JTextField();
+        txtRucGH = new javax.swing.JTextField();
+        txtRDireccion2 = new javax.swing.JTextField();
+        txtRSueldoHora = new javax.swing.JTextField();
+        btnNRegistrarD = new javax.swing.JButton();
+        lblNNacimientoD = new javax.swing.JLabel();
+        txtRNacimiento = new javax.swing.JTextField();
+        btnRAdministrativa = new javax.swing.JButton();
+        pnlServicios = new javax.swing.JPanel();
+        jLayeredPane4 = new javax.swing.JLayeredPane();
+        jLabel7 = new javax.swing.JLabel();
+        lblSServicio = new javax.swing.JLabel();
+        cbxSServicio = new javax.swing.JComboBox();
+        cbxSTipo = new javax.swing.JComboBox();
+        lblSNombre = new javax.swing.JLabel();
+        lblSApellidoPat = new javax.swing.JLabel();
+        lblSApellidoMat = new javax.swing.JLabel();
+        txtSNombres = new javax.swing.JTextField();
+        txtSApellidoPat = new javax.swing.JTextField();
+        txtSApellidoMat = new javax.swing.JTextField();
+        lblSTelefono = new javax.swing.JLabel();
+        txtSTelefono = new javax.swing.JTextField();
+        lblSDireccion = new javax.swing.JLabel();
+        txtSDireccion1 = new javax.swing.JTextField();
+        txtSDireccion2 = new javax.swing.JTextField();
+        lblSCorreo = new javax.swing.JLabel();
+        txtSCorreo = new javax.swing.JTextField();
+        lblSPrecioH = new javax.swing.JLabel();
+        txtSPrecioH = new javax.swing.JTextField();
+        lblSHoraI = new javax.swing.JLabel();
+        lblSHoraT = new javax.swing.JLabel();
+        txtSHoraI = new javax.swing.JTextField();
+        txtSHoraT = new javax.swing.JTextField();
+        lblSHorario = new javax.swing.JLabel();
+        cbxSHora = new javax.swing.JComboBox();
+        scrSRecientes = new javax.swing.JScrollPane();
+        tblSRecientes = new javax.swing.JTable();
+        btnSRegistrar = new javax.swing.JButton();
+        btnSSeleccionar = new javax.swing.JButton();
+        lblSEntrega = new javax.swing.JLabel();
+        txtSEntrega = new javax.swing.JTextField();
+        lblSFecha = new javax.swing.JLabel();
+        txtSFecha1 = new javax.swing.JTextField();
+        txtSFecha2 = new javax.swing.JTextField();
+        txtSFecha3 = new javax.swing.JTextField();
+        lblextra1 = new javax.swing.JLabel();
+        lblextra2 = new javax.swing.JLabel();
+        pnlAsistencia = new javax.swing.JPanel();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
+        btnAsistenciaDocentes = new javax.swing.JButton();
+        lblAsistencia = new javax.swing.JLabel();
+        btnAsistenciaAlumnos = new javax.swing.JButton();
+        ScrollAsistencia = new javax.swing.JScrollPane();
+        tblAsistencia = new javax.swing.JTable();
+        btnRegresar = new javax.swing.JButton();
+        lblCodigo = new javax.swing.JLabel();
+        txtCodigo = new javax.swing.JTextField();
+        lblNombreAsis = new javax.swing.JLabel();
+        txtNombreAsis = new javax.swing.JTextField();
+        txtApellidoPatAsis = new javax.swing.JTextField();
+        lblPreparacionAsis = new javax.swing.JLabel();
+        txtApellidoMatAsis = new javax.swing.JTextField();
+        lblApellidoPatAsis = new javax.swing.JLabel();
+        lblApellidoMatAsis = new javax.swing.JLabel();
+        txtPreparacionAsis = new javax.swing.JTextField();
+        lblMes = new javax.swing.JLabel();
+        lblSalonAsis = new javax.swing.JLabel();
+        txtSalonAsis = new javax.swing.JTextField();
+        lblAsistenciaAD = new javax.swing.JLabel();
+        btnAsistenciaAdministrativa = new javax.swing.JButton();
+        cbxModoBusqueda = new javax.swing.JComboBox();
+        lblModoBusqueda = new javax.swing.JLabel();
+        btnLimpiar = new javax.swing.JButton();
+        btnFaltantes = new javax.swing.JButton();
+        btnBusqueda = new javax.swing.JButton();
+        btnAnterior = new javax.swing.JButton();
+        btnSiguiente = new javax.swing.JButton();
+        btnActual = new javax.swing.JButton();
+        pnlDatos = new javax.swing.JPanel();
+        jLayeredPane3 = new javax.swing.JLayeredPane();
+        lblAlumnos = new javax.swing.JLabel();
+        btnDDocentes = new javax.swing.JButton();
+        btnDAlumnos = new javax.swing.JButton();
+        btnRegresarA = new javax.swing.JButton();
+        btnRegistrarA = new javax.swing.JButton();
+        lblDUltNotaObtA = new javax.swing.JLabel();
+        txtDUltNotaObtA = new javax.swing.JTextField();
+        btnDVerNotasA = new javax.swing.JButton();
+        lblNCodigoA = new javax.swing.JLabel();
+        lblNNombreA = new javax.swing.JLabel();
+        lblNApellidoPatA = new javax.swing.JLabel();
+        lblNApellidoMatA = new javax.swing.JLabel();
+        lblNNacimientoA = new javax.swing.JLabel();
+        lblNDireccionA = new javax.swing.JLabel();
+        txtNCodigoA = new javax.swing.JTextField();
+        txtNNombreA = new javax.swing.JTextField();
+        txtNApellidoPatA = new javax.swing.JTextField();
+        txtNApellidoMatA = new javax.swing.JTextField();
+        txtNNacimientoA = new javax.swing.JTextField();
+        txtNDireccion1A = new javax.swing.JTextField();
+        txtNDireccion2A = new javax.swing.JTextField();
+        lblNTelefonoA = new javax.swing.JLabel();
+        txtNTelefonoA = new javax.swing.JTextField();
+        lblNCorreoA = new javax.swing.JLabel();
+        txtNCorreoA = new javax.swing.JTextField();
+        lblNPreparacionA = new javax.swing.JLabel();
+        cbxNPreparacionA = new javax.swing.JComboBox();
+        txtDPreparacionA = new javax.swing.JTextField();
+        lblAlumnosDR = new javax.swing.JLabel();
+        btnDAdministrativa = new javax.swing.JButton();
+        pnlBalance = new javax.swing.JPanel();
+        jLayeredPane5 = new javax.swing.JLayeredPane();
+        lblTEgresosB = new javax.swing.JLabel();
+        lblTIngresos = new javax.swing.JLabel();
+        lblDAsesoriaB = new javax.swing.JLabel();
+        lblAsesoriaB = new javax.swing.JLabel();
+        lblAcademiaB = new javax.swing.JLabel();
+        lblDAcademiaB = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        lblParticularesB = new javax.swing.JLabel();
+        btnIngresosB = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        lblDParticularesB = new javax.swing.JLabel();
+        txtAcademiaB = new javax.swing.JFormattedTextField();
+        txtAsesoriaB = new javax.swing.JFormattedTextField();
+        txtParticularesB = new javax.swing.JFormattedTextField();
+        txtTIngresosB = new javax.swing.JFormattedTextField();
+        txtDAcademiaB = new javax.swing.JFormattedTextField();
+        txtDAsesoriaB = new javax.swing.JFormattedTextField();
+        txtDParticularesB = new javax.swing.JFormattedTextField();
+        txtTEgresosB = new javax.swing.JFormattedTextField();
+        pnlPrecios = new javax.swing.JPanel();
+        lblPrecio = new javax.swing.JLabel();
+        lblPAcademia = new javax.swing.JLabel();
+        lblPSemestral = new javax.swing.JLabel();
+        lblPIntensivo = new javax.swing.JLabel();
+        lblPNormal = new javax.swing.JLabel();
+        lblPAnual = new javax.swing.JLabel();
+        lblPAsesoria = new javax.swing.JLabel();
+        lblPrecioIntensivo = new javax.swing.JLabel();
+        lblPrecioNormal = new javax.swing.JLabel();
+        lblPrecioAnual = new javax.swing.JLabel();
+        lblPrecioAsesoria = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        MenuOpciones = new javax.swing.JMenu();
+        MenuMaterias = new javax.swing.JMenuItem();
+        MenuSalones = new javax.swing.JMenuItem();
+        MenuPrecios = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                formKeyTyped(evt);
+            }
+        });
+
+        pnlPestañas.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        pnlPestañas.setTabPlacement(javax.swing.JTabbedPane.LEFT);
+        pnlPestañas.setFont(new java.awt.Font("Arial", 0, 14));
+
+        jLabel22.setBounds(-390, -206, 870, 510);
+        jLayeredPane6.add(jLabel22, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jLabel4.setText("JAQUE MATE Club de Matematicas");
+
+        jLabel5.setText("Bienvenido a");
+
+        javax.swing.GroupLayout pnlBienvenidoLayout = new javax.swing.GroupLayout(pnlBienvenido);
+        pnlBienvenido.setLayout(pnlBienvenidoLayout);
+        pnlBienvenidoLayout.setHorizontalGroup(
+            pnlBienvenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlBienvenidoLayout.createSequentialGroup()
+                .addGap(385, 385, 385)
+                .addComponent(jLayeredPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(387, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBienvenidoLayout.createSequentialGroup()
+                .addContainerGap(312, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(296, 296, 296))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBienvenidoLayout.createSequentialGroup()
+                .addContainerGap(358, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(354, 354, 354))
+        );
+        pnlBienvenidoLayout.setVerticalGroup(
+            pnlBienvenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlBienvenidoLayout.createSequentialGroup()
+                .addGap(143, 143, 143)
+                .addComponent(jLabel5)
+                .addGap(43, 43, 43)
+                .addComponent(jLayeredPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4)
+                .addContainerGap(309, Short.MAX_VALUE))
+        );
+
+        pnlPestañas.addTab("Bienvenido", pnlBienvenido);
+
+        btnRAlumnos.setText("Alumnos");
+        btnRAlumnos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRAlumnosActionPerformed(evt);
+            }
+        });
+        btnRAlumnos.setBounds(30, 260, 180, 110);
+        jLayeredPane2.add(btnRAlumnos, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        lblDocentesD.setText("REGISTRO");
+        lblDocentesD.setBounds(330, 80, 100, 20);
+        jLayeredPane2.add(lblDocentesD, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        btnRDocente.setText("Docentes");
+        btnRDocente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRDocenteActionPerformed(evt);
+            }
+        });
+        btnRDocente.setBounds(540, 260, 180, 110);
+        jLayeredPane2.add(btnRDocente, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        btnRegresarD.setText("Regresar");
+        btnRegresarD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresarDActionPerformed(evt);
+            }
+        });
+        btnRegresarD.setBounds(40, 450, 90, 23);
+        jLayeredPane2.add(btnRegresarD, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        lblNCodigoD.setText("Nuevo Codigo:");
+        lblNCodigoD.setBounds(50, 100, 100, 14);
+        jLayeredPane2.add(lblNCodigoD, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        lblNNombreD.setText("Nombre:");
+        lblNNombreD.setBounds(50, 130, 110, 14);
+        jLayeredPane2.add(lblNNombreD, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        lblNSueldoHoraD.setText("Sueldo por hora");
+        lblNSueldoHoraD.setBounds(420, 100, 100, 14);
+        jLayeredPane2.add(lblNSueldoHoraD, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        lblNMateriasD.setText("Materias:");
+        lblNMateriasD.setBounds(420, 180, 110, 14);
+        jLayeredPane2.add(lblNMateriasD, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        cbxRMaterias.setBounds(540, 180, 170, 20);
+        jLayeredPane2.add(cbxRMaterias, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        txtRMaterias.setColumns(20);
+        txtRMaterias.setRows(5);
+        SANMateriasD.setViewportView(txtRMaterias);
+
+        SANMateriasD.setBounds(540, 220, 170, 110);
+        jLayeredPane2.add(SANMateriasD, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        lblNServicioD.setText("Cargo del Docente:");
+        lblNServicioD.setBounds(420, 130, 100, 14);
+        jLayeredPane2.add(lblNServicioD, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        cbxRServicio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Asesoria(DEATRE)", "Academia", "Clases Particulares" }));
+        cbxRServicio.setBounds(540, 130, 100, 20);
+        jLayeredPane2.add(cbxRServicio, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        lblNRegistroD.setFont(new java.awt.Font("Arial", 0, 24));
+        lblNRegistroD.setBounds(270, 30, 360, 30);
+        jLayeredPane2.add(lblNRegistroD, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        lblMatAsignadasD.setText("Materias Asignadas");
+        lblMatAsignadasD.setBounds(420, 220, 120, 14);
+        jLayeredPane2.add(lblMatAsignadasD, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        lblNApellidoMatD.setText("Apellido Materno:");
+        lblNApellidoMatD.setBounds(50, 190, 100, 14);
+        jLayeredPane2.add(lblNApellidoMatD, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        lblNApellidoPatD.setText("Apellido Paterno:");
+        lblNApellidoPatD.setBounds(50, 160, 110, 14);
+        jLayeredPane2.add(lblNApellidoPatD, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        lblNDireccionD.setText("Direccion:");
+        lblNDireccionD.setBounds(50, 250, 60, 14);
+        jLayeredPane2.add(lblNDireccionD, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        lblNTelefonoD.setText("Telefono:");
+        lblNTelefonoD.setBounds(50, 320, 90, 14);
+        jLayeredPane2.add(lblNTelefonoD, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        lblNCorreoD.setText("Correo:");
+        lblNCorreoD.setBounds(50, 350, 70, 14);
+        jLayeredPane2.add(lblNCorreoD, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        lblNRucD.setText("Ruc:");
+        lblNRucD.setBounds(50, 380, 50, 14);
+        jLayeredPane2.add(lblNRucD, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        txtRCodigo.setEditable(false);
+        txtRCodigo.setBounds(170, 100, 110, 20);
+        jLayeredPane2.add(txtRCodigo, javax.swing.JLayeredPane.PALETTE_LAYER);
+        txtRNombre.setBounds(170, 130, 110, 20);
+        jLayeredPane2.add(txtRNombre, javax.swing.JLayeredPane.PALETTE_LAYER);
+        txtRApellidoPat.setBounds(170, 160, 110, 20);
+        jLayeredPane2.add(txtRApellidoPat, javax.swing.JLayeredPane.PALETTE_LAYER);
+        txtRApellidoMat.setBounds(170, 190, 110, 20);
+        jLayeredPane2.add(txtRApellidoMat, javax.swing.JLayeredPane.PALETTE_LAYER);
+        txtRDireccion1.setBounds(170, 250, 190, 20);
+        jLayeredPane2.add(txtRDireccion1, javax.swing.JLayeredPane.PALETTE_LAYER);
+        txtRTelefono.setBounds(170, 320, 110, 20);
+        jLayeredPane2.add(txtRTelefono, javax.swing.JLayeredPane.PALETTE_LAYER);
+        txtRCorreo.setBounds(170, 350, 110, 20);
+        jLayeredPane2.add(txtRCorreo, javax.swing.JLayeredPane.PALETTE_LAYER);
+        txtRucGH.setBounds(170, 380, 110, 20);
+        jLayeredPane2.add(txtRucGH, javax.swing.JLayeredPane.PALETTE_LAYER);
+        txtRDireccion2.setBounds(170, 280, 190, 20);
+        jLayeredPane2.add(txtRDireccion2, javax.swing.JLayeredPane.PALETTE_LAYER);
+        txtRSueldoHora.setBounds(540, 100, 100, 20);
+        jLayeredPane2.add(txtRSueldoHora, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        btnNRegistrarD.setText("Registrar");
+        btnNRegistrarD.setBounds(160, 450, 90, 23);
+        jLayeredPane2.add(btnNRegistrarD, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        lblNNacimientoD.setText("Fecha de Nacimiento: ");
+        lblNNacimientoD.setBounds(50, 220, 130, 14);
+        jLayeredPane2.add(lblNNacimientoD, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        txtRNacimiento.setBounds(170, 220, 110, 20);
+        jLayeredPane2.add(txtRNacimiento, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        btnRAdministrativa.setText("Administrativa");
+        btnRAdministrativa.setBounds(280, 260, 180, 110);
+        jLayeredPane2.add(btnRAdministrativa, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout pnlRegistroLayout = new javax.swing.GroupLayout(pnlRegistro);
+        pnlRegistro.setLayout(pnlRegistroLayout);
+        pnlRegistroLayout.setHorizontalGroup(
+            pnlRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLayeredPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 773, Short.MAX_VALUE)
+        );
+        pnlRegistroLayout.setVerticalGroup(
+            pnlRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLayeredPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 542, Short.MAX_VALUE)
+        );
+
+        pnlPestañas.addTab("Registro", pnlRegistro);
+
+        pnlServicios.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                pnlServiciosAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+
+        jLabel7.setText("Servicios");
+        jLabel7.setBounds(360, 20, 80, 14);
+        jLayeredPane4.add(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        lblSServicio.setText("Tipo de Servicio:");
+        lblSServicio.setBounds(20, 90, 120, 14);
+        jLayeredPane4.add(lblSServicio, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        cbxSServicio.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione Uno", "Asesoria(DEATRE)", "Clases Particulares", "Trabajos/Informes" }));
+        cbxSServicio.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbxSServicioItemStateChanged(evt);
+            }
+        });
+        cbxSServicio.setBounds(120, 90, 120, 20);
+        jLayeredPane4.add(cbxSServicio, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        cbxSTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccion Uno", "Interno", "Externo" }));
+        cbxSTipo.setBounds(120, 130, 120, 20);
+        jLayeredPane4.add(cbxSTipo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        lblSNombre.setText("Nombres:");
+        lblSNombre.setBounds(20, 240, 80, 14);
+        jLayeredPane4.add(lblSNombre, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        lblSApellidoPat.setText("Apellido Paterno:");
+        lblSApellidoPat.setBounds(20, 270, 130, 14);
+        jLayeredPane4.add(lblSApellidoPat, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        lblSApellidoMat.setText("Apellido Materno:");
+        lblSApellidoMat.setBounds(20, 300, 140, 14);
+        jLayeredPane4.add(lblSApellidoMat, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        txtSNombres.setBounds(120, 230, 120, 27);
+        jLayeredPane4.add(txtSNombres, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        txtSApellidoPat.setBounds(120, 260, 120, 27);
+        jLayeredPane4.add(txtSApellidoPat, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        txtSApellidoMat.setBounds(120, 290, 120, 27);
+        jLayeredPane4.add(txtSApellidoMat, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        lblSTelefono.setText("Telefono:");
+        lblSTelefono.setBounds(20, 330, 90, 14);
+        jLayeredPane4.add(lblSTelefono, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        txtSTelefono.setBounds(120, 320, 120, 27);
+        jLayeredPane4.add(txtSTelefono, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        lblSDireccion.setText("Direccion:");
+        lblSDireccion.setBounds(20, 360, 100, 14);
+        jLayeredPane4.add(lblSDireccion, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        txtSDireccion1.setBounds(120, 350, 200, 27);
+        jLayeredPane4.add(txtSDireccion1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        txtSDireccion2.setBounds(120, 380, 200, 27);
+        jLayeredPane4.add(txtSDireccion2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        lblSCorreo.setText("Correo:");
+        lblSCorreo.setBounds(20, 430, 90, 14);
+        jLayeredPane4.add(lblSCorreo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        txtSCorreo.setBounds(120, 420, 120, 27);
+        jLayeredPane4.add(txtSCorreo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        lblSPrecioH.setText("Precio por hora:");
+        lblSPrecioH.setBounds(460, 100, 90, 14);
+        jLayeredPane4.add(lblSPrecioH, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        txtSPrecioH.setBounds(560, 90, 120, 27);
+        jLayeredPane4.add(txtSPrecioH, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        lblSHoraI.setText("Hora Inicio:");
+        lblSHoraI.setBounds(20, 170, 80, 14);
+        jLayeredPane4.add(lblSHoraI, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        lblSHoraT.setText("Hora Termino:");
+        lblSHoraT.setBounds(20, 200, 80, 14);
+        jLayeredPane4.add(lblSHoraT, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        txtSHoraI.setBounds(120, 160, 120, 27);
+        jLayeredPane4.add(txtSHoraI, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        txtSHoraT.setBounds(120, 190, 120, 27);
+        jLayeredPane4.add(txtSHoraT, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        lblSHorario.setText("Horas:");
+        lblSHorario.setBounds(20, 150, 60, 14);
+        jLayeredPane4.add(lblSHorario, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        cbxSHora.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione Uno", "4:00-5:30", "5:30-7:00", "7:00-8:30", "8:30-10:00" }));
+        cbxSHora.setBounds(120, 150, 120, 20);
+        jLayeredPane4.add(cbxSHora, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        tblSRecientes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Servicio", "Capacidad", "Horario", "Precio Hora", "Fecha"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblSRecientes.getTableHeader().setReorderingAllowed(false);
+        scrSRecientes.setViewportView(tblSRecientes);
+        tblSRecientes.getColumnModel().getColumn(0).setResizable(false);
+        tblSRecientes.getColumnModel().getColumn(1).setResizable(false);
+        tblSRecientes.getColumnModel().getColumn(2).setResizable(false);
+        tblSRecientes.getColumnModel().getColumn(3).setResizable(false);
+        tblSRecientes.getColumnModel().getColumn(4).setResizable(false);
+
+        scrSRecientes.setBounds(330, 190, 430, 270);
+        jLayeredPane4.add(scrSRecientes, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        btnSRegistrar.setText("Registrar");
+        btnSRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSRegistrarActionPerformed(evt);
+            }
+        });
+        btnSRegistrar.setBounds(560, 140, 120, 23);
+        jLayeredPane4.add(btnSRegistrar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        btnSSeleccionar.setText("Seleccionar");
+        btnSSeleccionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSSeleccionarActionPerformed(evt);
+            }
+        });
+        btnSSeleccionar.setBounds(643, 500, 100, 23);
+        jLayeredPane4.add(btnSSeleccionar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        lblSEntrega.setText("Fecha de Entrega");
+        lblSEntrega.setBounds(20, 150, 110, 14);
+        jLayeredPane4.add(lblSEntrega, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        txtSEntrega.setBounds(120, 150, 120, 20);
+        jLayeredPane4.add(txtSEntrega, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        lblSFecha.setText("Fecha:");
+        lblSFecha.setBounds(20, 190, 80, 14);
+        jLayeredPane4.add(lblSFecha, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        txtSFecha1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSFecha1KeyTyped(evt);
+            }
+        });
+        txtSFecha1.setBounds(120, 180, 30, 27);
+        jLayeredPane4.add(txtSFecha1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        txtSFecha2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSFecha2KeyTyped(evt);
+            }
+        });
+        txtSFecha2.setBounds(160, 180, 30, 27);
+        jLayeredPane4.add(txtSFecha2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        txtSFecha3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtSFecha3KeyTyped(evt);
+            }
+        });
+        txtSFecha3.setBounds(210, 180, 40, 27);
+        jLayeredPane4.add(txtSFecha3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        lblextra1.setText("/");
+        lblextra1.setBounds(150, 180, 20, 14);
+        jLayeredPane4.add(lblextra1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        lblextra2.setText("/");
+        lblextra2.setBounds(200, 180, 30, 14);
+        jLayeredPane4.add(lblextra2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout pnlServiciosLayout = new javax.swing.GroupLayout(pnlServicios);
+        pnlServicios.setLayout(pnlServiciosLayout);
+        pnlServiciosLayout.setHorizontalGroup(
+            pnlServiciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLayeredPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 773, Short.MAX_VALUE)
+        );
+        pnlServiciosLayout.setVerticalGroup(
+            pnlServiciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLayeredPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 542, Short.MAX_VALUE)
+        );
+
+        pnlPestañas.addTab("Servicios", pnlServicios);
+
+        pnlAsistencia.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                pnlAsistenciaAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+
+        btnAsistenciaDocentes.setText("Docentes");
+        btnAsistenciaDocentes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAsistenciaDocentesActionPerformed(evt);
+            }
+        });
+        btnAsistenciaDocentes.setBounds(540, 260, 180, 110);
+        jLayeredPane1.add(btnAsistenciaDocentes, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        lblAsistencia.setText("ASISTENCIA GENERAL");
+        lblAsistencia.setBounds(330, 80, 140, 14);
+        jLayeredPane1.add(lblAsistencia, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        btnAsistenciaAlumnos.setText("Alumnos");
+        btnAsistenciaAlumnos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnAsistenciaAlumnos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAsistenciaAlumnosActionPerformed(evt);
+            }
+        });
+        btnAsistenciaAlumnos.setBounds(30, 260, 180, 110);
+        jLayeredPane1.add(btnAsistenciaAlumnos, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        tblAsistencia.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblAsistencia.setRowHeight(30);
+        tblAsistencia.setRowSelectionAllowed(false);
+        tblAsistencia.getTableHeader().setReorderingAllowed(false);
+        ScrollAsistencia.setViewportView(tblAsistencia);
+        tblAsistencia.getColumnModel().getColumn(0).setResizable(false);
+        tblAsistencia.getColumnModel().getColumn(1).setResizable(false);
+        tblAsistencia.getColumnModel().getColumn(2).setResizable(false);
+        tblAsistencia.getColumnModel().getColumn(3).setResizable(false);
+        tblAsistencia.getColumnModel().getColumn(4).setResizable(false);
+        tblAsistencia.getColumnModel().getColumn(5).setResizable(false);
+        tblAsistencia.getColumnModel().getColumn(6).setResizable(false);
+
+        ScrollAsistencia.setBounds(160, 300, 450, 210);
+        jLayeredPane1.add(ScrollAsistencia, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        btnRegresar.setText("Regresar");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresarActionPerformed(evt);
+            }
+        });
+        btnRegresar.setBounds(20, 470, 120, 60);
+        jLayeredPane1.add(btnRegresar, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        lblCodigo.setText("Ingrese Codigo:");
+        lblCodigo.setBounds(80, 140, 90, 20);
+        jLayeredPane1.add(lblCodigo, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        txtCodigo.setEditable(false);
+        txtCodigo.setBounds(200, 140, 100, 20);
+        jLayeredPane1.add(txtCodigo, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        lblNombreAsis.setText("Nombre:");
+        lblNombreAsis.setBounds(80, 170, 70, 14);
+        jLayeredPane1.add(lblNombreAsis, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        txtNombreAsis.setEditable(false);
+        txtNombreAsis.setBounds(200, 170, 100, 20);
+        jLayeredPane1.add(txtNombreAsis, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        txtApellidoPatAsis.setEditable(false);
+        txtApellidoPatAsis.setBounds(200, 200, 100, 20);
+        jLayeredPane1.add(txtApellidoPatAsis, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        lblPreparacionAsis.setText("Tipo de Preparacion:");
+        lblPreparacionAsis.setBounds(440, 170, 150, 14);
+        jLayeredPane1.add(lblPreparacionAsis, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        txtApellidoMatAsis.setEditable(false);
+        txtApellidoMatAsis.setBounds(560, 140, 100, 20);
+        jLayeredPane1.add(txtApellidoMatAsis, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        lblApellidoPatAsis.setText("Apellido Paterno:");
+        lblApellidoPatAsis.setBounds(80, 200, 110, 14);
+        jLayeredPane1.add(lblApellidoPatAsis, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        lblApellidoMatAsis.setText("Apellido Materno:");
+        lblApellidoMatAsis.setBounds(440, 140, 110, 14);
+        jLayeredPane1.add(lblApellidoMatAsis, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        txtPreparacionAsis.setEditable(false);
+        txtPreparacionAsis.setBounds(560, 170, 100, 20);
+        jLayeredPane1.add(txtPreparacionAsis, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        lblMes.setText("MES");
+        lblMes.setBounds(350, 250, 100, 14);
+        jLayeredPane1.add(lblMes, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        lblSalonAsis.setText("Salon:");
+        lblSalonAsis.setBounds(440, 200, 90, 14);
+        jLayeredPane1.add(lblSalonAsis, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        txtSalonAsis.setEditable(false);
+        txtSalonAsis.setBounds(560, 200, 100, 20);
+        jLayeredPane1.add(txtSalonAsis, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        lblAsistenciaAD.setText("ASISTENCIA DE ");
+        lblAsistenciaAD.setBounds(330, 20, 310, 14);
+        jLayeredPane1.add(lblAsistenciaAD, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        btnAsistenciaAdministrativa.setText("Administrativa");
+        btnAsistenciaAdministrativa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAsistenciaAdministrativaActionPerformed(evt);
+            }
+        });
+        btnAsistenciaAdministrativa.setBounds(280, 260, 180, 110);
+        jLayeredPane1.add(btnAsistenciaAdministrativa, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        cbxModoBusqueda.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Codigo", "Nombre", "Ap. Paterno", "Ap. Materno" }));
+        cbxModoBusqueda.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbxModoBusquedaItemStateChanged(evt);
+            }
+        });
+        cbxModoBusqueda.setBounds(170, 90, 100, 20);
+        jLayeredPane1.add(cbxModoBusqueda, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        lblModoBusqueda.setText("Modo de Busqueda:");
+        lblModoBusqueda.setBounds(50, 90, 130, 14);
+        jLayeredPane1.add(lblModoBusqueda, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        btnLimpiar.setText("Limpiar Campos");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
+        btnLimpiar.setBounds(630, 470, 130, 60);
+        jLayeredPane1.add(btnLimpiar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        btnFaltantes.setText("Faltantes (HOY)");
+        btnFaltantes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFaltantesActionPerformed(evt);
+            }
+        });
+        btnFaltantes.setBounds(400, 290, 160, 60);
+        jLayeredPane1.add(btnFaltantes, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        btnBusqueda.setText("Busqueda por Alumno");
+        btnBusqueda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBusquedaActionPerformed(evt);
+            }
+        });
+        btnBusqueda.setBounds(180, 290, 170, 60);
+        jLayeredPane1.add(btnBusqueda, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        btnAnterior.setText("Anterior");
+        btnAnterior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAnteriorActionPerformed(evt);
+            }
+        });
+        btnAnterior.setBounds(60, 300, 90, 40);
+        jLayeredPane1.add(btnAnterior, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        btnSiguiente.setText("Siguiente");
+        btnSiguiente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSiguienteActionPerformed(evt);
+            }
+        });
+        btnSiguiente.setBounds(620, 300, 90, 40);
+        jLayeredPane1.add(btnSiguiente, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        btnActual.setText("Actual");
+        btnActual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualActionPerformed(evt);
+            }
+        });
+        btnActual.setBounds(620, 360, 90, 40);
+        jLayeredPane1.add(btnActual, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout pnlAsistenciaLayout = new javax.swing.GroupLayout(pnlAsistencia);
+        pnlAsistencia.setLayout(pnlAsistenciaLayout);
+        pnlAsistenciaLayout.setHorizontalGroup(
+            pnlAsistenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 773, Short.MAX_VALUE)
+        );
+        pnlAsistenciaLayout.setVerticalGroup(
+            pnlAsistenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLayeredPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 542, Short.MAX_VALUE)
+        );
+
+        pnlPestañas.addTab("Asistencia", pnlAsistencia);
+
+        lblAlumnos.setText("ALUMNOS");
+        lblAlumnos.setBounds(330, 80, 70, 14);
+        jLayeredPane3.add(lblAlumnos, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        btnDDocentes.setText("Docentes");
+        btnDDocentes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDDocentesActionPerformed(evt);
+            }
+        });
+        btnDDocentes.setBounds(540, 260, 180, 110);
+        jLayeredPane3.add(btnDDocentes, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        btnDAlumnos.setText("Alumnos");
+        btnDAlumnos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDAlumnosActionPerformed(evt);
+            }
+        });
+        btnDAlumnos.setBounds(30, 260, 180, 110);
+        jLayeredPane3.add(btnDAlumnos, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        btnRegresarA.setText("Regresar");
+        btnRegresarA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresarAActionPerformed(evt);
+            }
+        });
+        btnRegresarA.setBounds(60, 450, 80, 23);
+        jLayeredPane3.add(btnRegresarA, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        btnRegistrarA.setText("Registrar");
+        btnRegistrarA.setBounds(170, 450, 80, 23);
+        jLayeredPane3.add(btnRegistrarA, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        lblDUltNotaObtA.setText("Ultima Nota Obtenida:");
+        lblDUltNotaObtA.setBounds(450, 110, 110, 14);
+        jLayeredPane3.add(lblDUltNotaObtA, javax.swing.JLayeredPane.PALETTE_LAYER);
+        txtDUltNotaObtA.setBounds(580, 110, 160, 20);
+        jLayeredPane3.add(txtDUltNotaObtA, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        btnDVerNotasA.setText("Ver Listado de Notas");
+        btnDVerNotasA.setBounds(580, 180, 160, 23);
+        jLayeredPane3.add(btnDVerNotasA, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        lblNCodigoA.setText("Nuevo Codigo:");
+        lblNCodigoA.setBounds(60, 110, 90, 14);
+        jLayeredPane3.add(lblNCodigoA, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        lblNNombreA.setText("Nombre:");
+        lblNNombreA.setBounds(60, 140, 90, 14);
+        jLayeredPane3.add(lblNNombreA, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        lblNApellidoPatA.setText("Apellido Paterno:");
+        lblNApellidoPatA.setBounds(60, 170, 100, 14);
+        jLayeredPane3.add(lblNApellidoPatA, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        lblNApellidoMatA.setText("Apellido Materno:");
+        lblNApellidoMatA.setBounds(60, 200, 100, 14);
+        jLayeredPane3.add(lblNApellidoMatA, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        lblNNacimientoA.setText("Fecha de Nacimiento:");
+        lblNNacimientoA.setBounds(60, 230, 120, 14);
+        jLayeredPane3.add(lblNNacimientoA, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        lblNDireccionA.setText("Direccion:");
+        lblNDireccionA.setBounds(60, 260, 70, 14);
+        jLayeredPane3.add(lblNDireccionA, javax.swing.JLayeredPane.PALETTE_LAYER);
+        txtNCodigoA.setBounds(180, 110, 90, 20);
+        jLayeredPane3.add(txtNCodigoA, javax.swing.JLayeredPane.PALETTE_LAYER);
+        txtNNombreA.setBounds(180, 140, 90, 20);
+        jLayeredPane3.add(txtNNombreA, javax.swing.JLayeredPane.PALETTE_LAYER);
+        txtNApellidoPatA.setBounds(180, 170, 90, 20);
+        jLayeredPane3.add(txtNApellidoPatA, javax.swing.JLayeredPane.PALETTE_LAYER);
+        txtNApellidoMatA.setBounds(180, 200, 90, 20);
+        jLayeredPane3.add(txtNApellidoMatA, javax.swing.JLayeredPane.PALETTE_LAYER);
+        txtNNacimientoA.setBounds(180, 230, 90, 20);
+        jLayeredPane3.add(txtNNacimientoA, javax.swing.JLayeredPane.PALETTE_LAYER);
+        txtNDireccion1A.setBounds(180, 260, 210, 20);
+        jLayeredPane3.add(txtNDireccion1A, javax.swing.JLayeredPane.PALETTE_LAYER);
+        txtNDireccion2A.setBounds(180, 290, 210, 20);
+        jLayeredPane3.add(txtNDireccion2A, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        lblNTelefonoA.setText("Telefono:");
+        lblNTelefonoA.setBounds(60, 320, 80, 14);
+        jLayeredPane3.add(lblNTelefonoA, javax.swing.JLayeredPane.PALETTE_LAYER);
+        txtNTelefonoA.setBounds(180, 320, 90, 20);
+        jLayeredPane3.add(txtNTelefonoA, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        lblNCorreoA.setText("Correo:");
+        lblNCorreoA.setBounds(60, 350, 80, 14);
+        jLayeredPane3.add(lblNCorreoA, javax.swing.JLayeredPane.PALETTE_LAYER);
+        txtNCorreoA.setBounds(180, 350, 90, 20);
+        jLayeredPane3.add(txtNCorreoA, javax.swing.JLayeredPane.PALETTE_LAYER);
+
+        lblNPreparacionA.setText("Tipo de Preparacion:");
+        lblNPreparacionA.setBounds(450, 140, 130, 14);
+        jLayeredPane3.add(lblNPreparacionA, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        cbxNPreparacionA.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Asesoria(DEATRE)", "Academia", "Clases Particulares" }));
+        cbxNPreparacionA.setBounds(580, 140, 120, 20);
+        jLayeredPane3.add(cbxNPreparacionA, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        txtDPreparacionA.setBounds(580, 140, 160, 20);
+        jLayeredPane3.add(txtDPreparacionA, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        lblAlumnosDR.setText("DATOS DE ALUMNOS");
+        lblAlumnosDR.setBounds(320, 30, 270, 20);
+        jLayeredPane3.add(lblAlumnosDR, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        btnDAdministrativa.setText("Administrativa");
+        btnDAdministrativa.setBounds(280, 260, 180, 110);
+        jLayeredPane3.add(btnDAdministrativa, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout pnlDatosLayout = new javax.swing.GroupLayout(pnlDatos);
+        pnlDatos.setLayout(pnlDatosLayout);
+        pnlDatosLayout.setHorizontalGroup(
+            pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLayeredPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 773, Short.MAX_VALUE)
+        );
+        pnlDatosLayout.setVerticalGroup(
+            pnlDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLayeredPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 542, Short.MAX_VALUE)
+        );
+
+        pnlPestañas.addTab("Ver Datos", pnlDatos);
+
+        lblTEgresosB.setText("Total de Egresos:");
+        lblTEgresosB.setBounds(130, 380, 110, 14);
+        jLayeredPane5.add(lblTEgresosB, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        lblTIngresos.setText("Total de Ingresos:");
+        lblTIngresos.setBounds(130, 210, 100, 14);
+        jLayeredPane5.add(lblTIngresos, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        lblDAsesoriaB.setText("Docentes de Asesoria(DIATRE):");
+        lblDAsesoriaB.setBounds(130, 320, 210, 14);
+        jLayeredPane5.add(lblDAsesoriaB, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        lblAsesoriaB.setText("Asesoria(DIATRE):");
+        lblAsesoriaB.setBounds(130, 150, 110, 14);
+        jLayeredPane5.add(lblAsesoriaB, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        lblAcademiaB.setText("Academia:");
+        lblAcademiaB.setBounds(130, 120, 60, 14);
+        jLayeredPane5.add(lblAcademiaB, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        lblDAcademiaB.setText("Docentes de Academia:");
+        lblDAcademiaB.setBounds(130, 290, 170, 14);
+        jLayeredPane5.add(lblDAcademiaB, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jLabel2.setText("Ingresos por Matriculas:");
+        jLabel2.setBounds(61, 80, 280, 14);
+        jLayeredPane5.add(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jLabel6.setText("Egresos por Pago de docentes:");
+        jLabel6.setBounds(66, 250, 280, 14);
+        jLayeredPane5.add(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jLabel11.setText("BALANCE RESUMEN");
+        jLabel11.setBounds(280, 30, 120, 14);
+        jLayeredPane5.add(jLabel11, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        lblParticularesB.setText("Clases Particulares:");
+        lblParticularesB.setBounds(130, 180, 160, 14);
+        jLayeredPane5.add(lblParticularesB, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        btnIngresosB.setText("Ver Balance de Ingresos");
+        btnIngresosB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngresosBActionPerformed(evt);
+            }
+        });
+        btnIngresosB.setBounds(520, 120, 170, 80);
+        jLayeredPane5.add(btnIngresosB, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jButton1.setText("Ver Balance de Egresos");
+        jButton1.setBounds(520, 300, 170, 80);
+        jLayeredPane5.add(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        lblDParticularesB.setText("Docentes de Clases Particulares:");
+        lblDParticularesB.setBounds(130, 350, 210, 14);
+        jLayeredPane5.add(lblDParticularesB, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        txtAcademiaB.setEditable(false);
+        txtAcademiaB.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
+        txtAcademiaB.setBounds(340, 120, 110, 22);
+        jLayeredPane5.add(txtAcademiaB, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        txtAsesoriaB.setEditable(false);
+        txtAsesoriaB.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
+        txtAsesoriaB.setBounds(340, 150, 110, 22);
+        jLayeredPane5.add(txtAsesoriaB, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        txtParticularesB.setEditable(false);
+        txtParticularesB.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
+        txtParticularesB.setBounds(340, 180, 110, 22);
+        jLayeredPane5.add(txtParticularesB, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        txtTIngresosB.setEditable(false);
+        txtTIngresosB.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
+        txtTIngresosB.setBounds(340, 210, 110, 22);
+        jLayeredPane5.add(txtTIngresosB, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        txtDAcademiaB.setEditable(false);
+        txtDAcademiaB.setBounds(340, 290, 110, 22);
+        jLayeredPane5.add(txtDAcademiaB, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        txtDAsesoriaB.setEditable(false);
+        txtDAsesoriaB.setBounds(340, 320, 110, 22);
+        jLayeredPane5.add(txtDAsesoriaB, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        txtDParticularesB.setEditable(false);
+        txtDParticularesB.setBounds(340, 350, 110, 22);
+        jLayeredPane5.add(txtDParticularesB, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        txtTEgresosB.setEditable(false);
+        txtTEgresosB.setBounds(340, 380, 110, 22);
+        jLayeredPane5.add(txtTEgresosB, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout pnlBalanceLayout = new javax.swing.GroupLayout(pnlBalance);
+        pnlBalance.setLayout(pnlBalanceLayout);
+        pnlBalanceLayout.setHorizontalGroup(
+            pnlBalanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLayeredPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 773, Short.MAX_VALUE)
+        );
+        pnlBalanceLayout.setVerticalGroup(
+            pnlBalanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLayeredPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 542, Short.MAX_VALUE)
+        );
+
+        pnlPestañas.addTab("Balance", pnlBalance);
+
+        pnlPrecios.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        lblPrecio.setText("Informacion de Precios");
+
+        lblPAcademia.setText("Academia:");
+
+        lblPSemestral.setText("Semestral:");
+
+        lblPIntensivo.setText("Intensivo:");
+
+        lblPNormal.setText("Normal:");
+
+        lblPAnual.setText("Anual:");
+
+        lblPAsesoria.setText("Asesoría(DEATRE):");
+
+        lblPrecioIntensivo.setText("S/.");
+
+        lblPrecioNormal.setText("S/.");
+
+        lblPrecioAnual.setText("S/.");
+
+        lblPrecioAsesoria.setText("S/.");
+
+        javax.swing.GroupLayout pnlPreciosLayout = new javax.swing.GroupLayout(pnlPrecios);
+        pnlPrecios.setLayout(pnlPreciosLayout);
+        pnlPreciosLayout.setHorizontalGroup(
+            pnlPreciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlPreciosLayout.createSequentialGroup()
+                .addGroup(pnlPreciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlPreciosLayout.createSequentialGroup()
+                        .addGroup(pnlPreciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlPreciosLayout.createSequentialGroup()
+                                .addGap(92, 92, 92)
+                                .addGroup(pnlPreciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblPNormal)
+                                    .addComponent(lblPIntensivo)))
+                            .addGroup(pnlPreciosLayout.createSequentialGroup()
+                                .addGap(66, 66, 66)
+                                .addGroup(pnlPreciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblPSemestral)
+                                    .addComponent(lblPAnual)))
+                            .addGroup(pnlPreciosLayout.createSequentialGroup()
+                                .addGap(32, 32, 32)
+                                .addGroup(pnlPreciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblPAsesoria)
+                                    .addComponent(lblPAcademia))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                        .addGroup(pnlPreciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblPrecioAsesoria)
+                            .addComponent(lblPrecioAnual)
+                            .addComponent(lblPrecioIntensivo)
+                            .addComponent(lblPrecioNormal)))
+                    .addGroup(pnlPreciosLayout.createSequentialGroup()
+                        .addContainerGap(98, Short.MAX_VALUE)
+                        .addComponent(lblPrecio)))
+                .addGap(86, 86, 86))
+        );
+        pnlPreciosLayout.setVerticalGroup(
+            pnlPreciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlPreciosLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(lblPrecio)
+                .addGap(43, 43, 43)
+                .addComponent(lblPAcademia)
+                .addGap(18, 18, 18)
+                .addComponent(lblPSemestral)
+                .addGap(18, 18, 18)
+                .addGroup(pnlPreciosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlPreciosLayout.createSequentialGroup()
+                        .addComponent(lblPIntensivo)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblPNormal)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblPAnual)
+                        .addGap(28, 28, 28)
+                        .addComponent(lblPAsesoria))
+                    .addGroup(pnlPreciosLayout.createSequentialGroup()
+                        .addComponent(lblPrecioIntensivo)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblPrecioNormal)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblPrecioAnual)
+                        .addGap(28, 28, 28)
+                        .addComponent(lblPrecioAsesoria)))
+                .addContainerGap(269, Short.MAX_VALUE))
+        );
+
+        jMenu1.setText("Archivo");
+
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem2.setText("Salir");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+
+        jMenuBar1.add(jMenu1);
+
+        MenuOpciones.setText("Opciones");
+
+        MenuMaterias.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.CTRL_MASK));
+        MenuMaterias.setText("Modificar Materias");
+        MenuMaterias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuMateriasActionPerformed(evt);
+            }
+        });
+        MenuOpciones.add(MenuMaterias);
+
+        MenuSalones.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        MenuSalones.setText("Modificar Salones");
+        MenuSalones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuSalonesActionPerformed(evt);
+            }
+        });
+        MenuOpciones.add(MenuSalones);
+
+        MenuPrecios.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
+        MenuPrecios.setText("Modificar Precios");
+        MenuPrecios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuPreciosActionPerformed(evt);
+            }
+        });
+        MenuOpciones.add(MenuPrecios);
+
+        jMenuBar1.add(MenuOpciones);
+
+        jMenu2.setText("Ayuda");
+
+        jMenuItem1.setText("About");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem1);
+
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(pnlPestañas, javax.swing.GroupLayout.PREFERRED_SIZE, 868, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnlPrecios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlPestañas, javax.swing.GroupLayout.DEFAULT_SIZE, 551, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(pnlPrecios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        JOptionPane.showMessageDialog(null,"Gustavo Galarza Arica © Derechos Reservados","About",JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void MenuMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuMateriasActionPerformed
+        Materias x = new Materias();
+        x.setVisible(true);
+    }//GEN-LAST:event_MenuMateriasActionPerformed
+
+    private void MenuSalonesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuSalonesActionPerformed
+        Salones x = new Salones();
+        x.setVisible(true);
+    }//GEN-LAST:event_MenuSalonesActionPerformed
+
+    private void formKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyTyped
+        if(evt.getKeyCode()==evt.VK_ESCAPE){
+            System.exit(0);
+        }
+    }//GEN-LAST:event_formKeyTyped
+
+    private void MenuPreciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPreciosActionPerformed
+        Precios x = new Precios();
+        x.setVisible(true);
+    }//GEN-LAST:event_MenuPreciosActionPerformed
+
+    private void btnRegresarAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarAActionPerformed
+
+    }//GEN-LAST:event_btnRegresarAActionPerformed
+
+    private void btnDAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDAlumnosActionPerformed
+
+    }//GEN-LAST:event_btnDAlumnosActionPerformed
+
+    private void btnDDocentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDDocentesActionPerformed
+
+    }//GEN-LAST:event_btnDDocentesActionPerformed
+
+    private void pnlAsistenciaAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_pnlAsistenciaAncestorAdded
+
+        calendario();     }//GEN-LAST:event_pnlAsistenciaAncestorAdded
+
+    private void btnActualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualActionPerformed
+
+        limpiarCalendario();         MesAux = Integer.parseInt(M);         AAux = Integer.parseInt(A);         calendario();     }//GEN-LAST:event_btnActualActionPerformed
+
+    private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
+
+        MesAux++;         if (MesAux == 12) {             MesAux = 0;             AAux++;         }         CalendarioSiguiente();     }//GEN-LAST:event_btnSiguienteActionPerformed
+
+    private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
+
+        MesAux--;         if (MesAux == -1) {             MesAux = 11;             AAux--;         }         CalendarioAnterior();     }//GEN-LAST:event_btnAnteriorActionPerformed
+
+    private void btnBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusquedaActionPerformed
+
+        if (alumno) {             Asistencia(false, false, false);             lblAsistenciaAD.setText("ASISTENCIA DE ALUMNOS");             lblPreparacionAsis.setText("Tipo de Preparacion:");         }         if (administrativa) {             Asistencia(false, false, true);             lblAsistenciaAD.setText("ASISTENCIA DE ADMINISTRATIVOS");             lblPreparacionAsis.setText("Cargo:");         }         if (docente) {             Asistencia(false, true, false);             lblAsistenciaAD.setText("ASISTENCIA DE DOCENTES");             lblPreparacionAsis.setText("Cargo:");         }         alumno = false;         docente = false;         administrativa = false;     }//GEN-LAST:event_btnBusquedaActionPerformed
+
+    private void btnFaltantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFaltantesActionPerformed
+
+        Faltantes x = new Faltantes();         x.setVisible(true);         alumno = false;         docente = false;         administrativa = false;     }//GEN-LAST:event_btnFaltantesActionPerformed
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+
+        txtCodigo.setText("");         txtNombreAsis.setText("");         txtApellidoPatAsis.setText("");         txtApellidoMatAsis.setText("");         txtSalonAsis.setText("");         txtPreparacionAsis.setText("");         focusBusqueda();     }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void cbxModoBusquedaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxModoBusquedaItemStateChanged
+
+        focusBusqueda();     }//GEN-LAST:event_cbxModoBusquedaItemStateChanged
+
+    private void btnAsistenciaAdministrativaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsistenciaAdministrativaActionPerformed
+
+        administrativa = true;         btnAsistenciaAlumnos.setVisible(false);         btnAsistenciaAdministrativa.setVisible(false);         btnAsistenciaDocentes.setVisible(false);         btnBusqueda.setVisible(true);         btnFaltantes.setVisible(true);         btnRegresar.setVisible(true);         btnBusqueda.setText("Busqueda por Admi.");     }//GEN-LAST:event_btnAsistenciaAdministrativaActionPerformed
+
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+
+        Asistencia(true, true, false);     }//GEN-LAST:event_btnRegresarActionPerformed
+
+    private void btnAsistenciaAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsistenciaAlumnosActionPerformed
+
+        alumno = true;         btnAsistenciaAlumnos.setVisible(false);         btnAsistenciaAdministrativa.setVisible(false);         btnAsistenciaDocentes.setVisible(false);         btnBusqueda.setVisible(true);         btnFaltantes.setVisible(true);         btnRegresar.setVisible(true);         btnBusqueda.setText("Busqueda por Alumno");     }//GEN-LAST:event_btnAsistenciaAlumnosActionPerformed
+
+    private void btnAsistenciaDocentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsistenciaDocentesActionPerformed
+
+        docente = true;         btnAsistenciaAlumnos.setVisible(false);         btnAsistenciaAdministrativa.setVisible(false);         btnAsistenciaDocentes.setVisible(false);         btnBusqueda.setVisible(true);         btnFaltantes.setVisible(true);         btnRegresar.setVisible(true);         btnBusqueda.setText("Busqueda por Docentes");     }//GEN-LAST:event_btnAsistenciaDocentesActionPerformed
+
+    private void btnRegresarDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarDActionPerformed
+
+        Registro(true, true, true);     }//GEN-LAST:event_btnRegresarDActionPerformed
+
+    private void btnRDocenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRDocenteActionPerformed
+
+        Registro(false, false, true);     }//GEN-LAST:event_btnRDocenteActionPerformed
+
+    private void btnRAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRAlumnosActionPerformed
+
+        Registro(false, true, false);     }//GEN-LAST:event_btnRAlumnosActionPerformed
+
+    private void cbxSServicioItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxSServicioItemStateChanged
+        CambiodeItem();
+    }//GEN-LAST:event_cbxSServicioItemStateChanged
+
+    private void pnlServiciosAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_pnlServiciosAncestorAdded
+        CambiodeItem();
+    }//GEN-LAST:event_pnlServiciosAncestorAdded
+
+    private void btnSRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSRegistrarActionPerformed
+        boolean verificar=true,verificar1=true;
+        verificar=VerificarCampos(verificar);
+        if(cbxSServicio.getSelectedIndex()==1){
+            if(Integer.parseInt(txtSFecha2.getText())>12||Integer.parseInt(txtSFecha2.getText())<1&&Integer.parseInt(txtSFecha1.getText())<1||Integer.parseInt(txtSFecha1.getText())>maximodia(Integer.parseInt(M),Integer.parseInt(A))){
+                JOptionPane.showMessageDialog(this,"Ingrese Correctamente la fecha ","ERROR", JOptionPane.ERROR_MESSAGE);
+                verificar1=false;
+                verificar=false;
+            }
+        }
+        if(verificar){
+            if(cbxSServicio.getSelectedIndex()==1){
+                 tblSRecientes.setValueAt(cbxSServicio.getSelectedItem(), 0, 0);
+                 tblSRecientes.setValueAt("1", 0, 1);
+                 tblSRecientes.setValueAt(cbxSHora.getSelectedItem(), 0, 2);
+                 tblSRecientes.setValueAt(txtSPrecioH.getText(), 0, 3);
+                 tblSRecientes.setValueAt(txtSFecha1.getText()+"/"+txtSFecha2.getText()+"/"+txtSFecha3.getText(), 0, 4);
+            }
+            JOptionPane.showMessageDialog(this,"Alumno Registrado Satisfactoriamente "+campos,"REGISTRADO", JOptionPane.INFORMATION_MESSAGE);
+            limpiarServicio();
+          }
+        else{
+            if(verificar1)
+                JOptionPane.showMessageDialog(this,"Campos Vacios: "+campos,"ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_btnSRegistrarActionPerformed
+
+    private void btnSSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSSeleccionarActionPerformed
+        int fila,cbx=-1;
+        String horario,fecha,fecha1=null,fecha2=null,fecha3=null;
+        fila=tblSRecientes.getSelectedRow();
+        if(fila==-1){
+            JOptionPane.showMessageDialog(this,"Seleccione una fila", "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            horario=String.valueOf(tblSRecientes.getValueAt(fila,2));
+            outerloop4:
+            for(int i=0;i<=cbxSHora.getItemCount();i++){
+                if(horario.equalsIgnoreCase(String.valueOf(cbxSHora.getItemAt(i)))){
+                    cbx=i;
+                    break outerloop4;
+                }
+            }
+            cbxSHora.setSelectedIndex(cbx);
+            txtSPrecioH.setText(String.valueOf(tblSRecientes.getValueAt(fila,3)));
+            fecha=String.valueOf(tblSRecientes.getValueAt(fila, 4));
+            int contador=0,aux=0;
+            for(int j=0;j<fecha.length();j++){
+                if(fecha.charAt(j)=='/'){
+                    contador++;
+                    if(contador==1){ 
+                        fecha1=fecha.substring(0, j);
+                        aux=j+1;
+                    }
+                    if(contador==2){
+                        fecha2=fecha.substring(aux,j);
+                        aux=j+1;
+                        fecha3=fecha.substring(aux, fecha.length());
+                    }
+                }
+            }
+            txtSFecha1.setText(fecha1);
+            txtSFecha2.setText(fecha2);
+            txtSFecha3.setText(fecha3);
+        }
+    }//GEN-LAST:event_btnSSeleccionarActionPerformed
+
+    private void txtSFecha3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSFecha3KeyTyped
+        char caracter=evt.getKeyChar();
+        String campo;
+        if(caracter<'0'||caracter>'9'){
+            if(caracter!=evt.VK_BACK_SPACE)
+                evt.consume();
+        }
+        campo=txtSFecha3.getText();
+        if(campo.length()==4){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtSFecha3KeyTyped
+
+    private void txtSFecha2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSFecha2KeyTyped
+        char caracter=evt.getKeyChar();
+        String campo=txtSFecha2.getText();
+        if(caracter<'0'||caracter>'9'){
+            if(caracter!=evt.VK_BACK_SPACE)
+                evt.consume();
+        }
+        if(campo.length()==2){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtSFecha2KeyTyped
+
+    private void txtSFecha1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSFecha1KeyTyped
+        char caracter=evt.getKeyChar();
+        String campo=txtSFecha1.getText(); 
+        if(caracter<'0'||caracter>'9'){
+            if(caracter!=evt.VK_BACK_SPACE)
+                evt.consume();
+        }
+        if(campo.length()==2){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtSFecha1KeyTyped
+
+    private void btnIngresosBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresosBActionPerformed
+        HSSFWorkbook libro = new HSSFWorkbook();
+        HSSFSheet hoja = libro.createSheet();
+        HSSFRow fila = hoja.createRow(0);
+        HSSFCell celda = fila.createCell((short)0);
+        HSSFRichTextString texto = new HSSFRichTextString("hola mundo");
+        celda.setCellValue(texto);
+    }//GEN-LAST:event_btnIngresosBActionPerformed
+
+    public boolean VerificarCampos(boolean verificar){
+        campos="";
+        if(cbxSServicio.getSelectedIndex()==0){
+            verificar=verificar&&false;
+            campos="Servicio, ";
+        }
+        if(cbxSServicio.getSelectedIndex()==2){
+            if(cbxSTipo.getSelectedIndex()==0){
+                verificar=verificar&&false;
+                campos+="Tipo de Clases Particulares, ";
+            }
+            verificar=verificar&&recorrer(txtSHoraI.getText());
+            if(recorrer(txtSHoraI.getText())==false){
+                campos+="Hora de Inicio, ";
+            }
+            verificar=verificar&&recorrer(txtSHoraT.getText());
+            if(recorrer(txtSHoraT.getText())==false){
+                campos+="Hora de Termino, ";
+            }
+        }
+        if(cbxSServicio.getSelectedIndex()==3){
+            verificar=verificar&&recorrer(txtSEntrega.getText());
+            if(recorrer(txtSEntrega.getText())==false){
+                verificar=verificar&&false;
+                campos+="Fecha de Entrega, ";
+            }
+        }
+        if(cbxSServicio.getSelectedIndex()==1){
+            if(cbxSHora.getSelectedIndex()==0){
+                verificar=verificar&&false;
+                campos+="Horario, ";
+            }
+            verificar=verificar&&recorrer(txtSFecha1.getText());
+            verificar=verificar&&recorrer(txtSFecha2.getText());
+            verificar=verificar&&recorrer(txtSFecha3.getText());
+            if(recorrer(txtSFecha3.getText())==false&&recorrer(txtSFecha2.getText())==false&&recorrer(txtSFecha1.getText())==false){
+                campos+="Hora de Termino, ";
+            }
+        }
+        verificar=verificar&&recorrer(txtSNombres.getText());
+        if(recorrer(txtSNombres.getText())==false){
+                campos+="Nombres, ";
+        }
+        verificar=verificar&&recorrer(txtSApellidoPat.getText());
+        if(recorrer(txtSApellidoPat.getText())==false){
+                campos+="Apellido Paterno, ";
+        }
+        verificar=verificar&&recorrer(txtSApellidoMat.getText());
+        if(recorrer(txtSApellidoMat.getText())==false){
+                campos+="Apellido Materno, ";
+        }
+        verificar=verificar&&recorrer(txtSDireccion1.getText());
+        if(recorrer(txtSDireccion1.getText())==false){
+                campos+="Direccion, ";
+        }
+        verificar=verificar&&recorrer(txtSPrecioH.getText());
+        if(recorrer(txtSPrecioH.getText())==false){
+                campos+="Precio por Hora, ";
+        }
+        return verificar;
+    }
+    public boolean recorrer(String c){
+        boolean v=true;
+        int contador=0;
+        if(c.length()==0){
+            v=false;
+        }
+        else{
+            for(int i=0;i<c.length();i++){
+                if(c.charAt(i)==' '){
+                    contador++;
+                }
+            }
+            if(contador==c.length()){
+                v=false;
+            }
+        }
+        return v;
+    }
+    public void CambiodeItem(){
+        switch(cbxSServicio.getSelectedIndex()){
+            case 0:lblSHoraI.setVisible(false);
+                   lblSHoraT.setVisible(false);
+                   lblSHorario.setVisible(false);
+                   txtSHoraI.setVisible(false);
+                   txtSHoraT.setVisible(false);
+                   cbxSHora.setVisible(false);
+                   cbxSTipo.setVisible(false);
+                   lblSFecha.setVisible(false);
+                   txtSFecha1.setVisible(false);
+                   txtSFecha2.setVisible(false);
+                   txtSFecha3.setVisible(false);
+                   lblextra1.setVisible(false);
+                   lblextra2.setVisible(false);
+                   lblSEntrega.setVisible(false);
+                   txtSEntrega.setVisible(false);
+                   tblSRecientes.setVisible(false);
+                   scrSRecientes.setVisible(false);
+                   btnSSeleccionar.setVisible(false);
+                break;
+            case 1:lblSHoraI.setVisible(false);
+                   lblSHoraT.setVisible(false);
+                   lblSHorario.setVisible(true);
+                   txtSHoraI.setVisible(false);
+                   txtSHoraT.setVisible(false);
+                   cbxSHora.setVisible(true);
+                   cbxSTipo.setVisible(false);
+                   lblSFecha.setVisible(true);
+                   txtSFecha1.setVisible(true);
+                   txtSFecha2.setVisible(true);
+                   txtSFecha3.setVisible(true);
+                   lblextra1.setVisible(true);
+                   lblextra2.setVisible(true);
+                   lblSEntrega.setVisible(false);
+                   txtSEntrega.setVisible(false);
+                   tblSRecientes.setVisible(true);
+                   scrSRecientes.setVisible(true);
+                   btnSSeleccionar.setVisible(true);
+                   break;
+            case 2:lblSHoraI.setVisible(true);
+                   lblSHoraT.setVisible(true);
+                   lblSHorario.setVisible(false);
+                   txtSHoraI.setVisible(true);
+                   txtSHoraT.setVisible(true);
+                   cbxSHora.setVisible(false);
+                   cbxSTipo.setVisible(true);
+                   lblSFecha.setVisible(false);
+                   txtSFecha1.setVisible(false);
+                   txtSFecha2.setVisible(false);
+                   txtSFecha3.setVisible(false);
+                   lblextra1.setVisible(false);
+                   lblextra2.setVisible(false);
+                   lblSEntrega.setVisible(false);
+                   txtSEntrega.setVisible(false);
+                   tblSRecientes.setVisible(false);
+                   scrSRecientes.setVisible(false);
+                   btnSSeleccionar.setVisible(false);
+                   break;
+            case 3:lblSHoraI.setVisible(false);
+                   lblSHoraT.setVisible(false);
+                   lblSHorario.setVisible(false);
+                   txtSHoraI.setVisible(false);
+                   txtSHoraT.setVisible(false);
+                   cbxSHora.setVisible(false);
+                   cbxSTipo.setVisible(false);
+                   lblSFecha.setVisible(false);
+                   txtSFecha1.setVisible(false);
+                   txtSFecha2.setVisible(false);
+                   txtSFecha3.setVisible(false);
+                   lblextra1.setVisible(false);
+                   lblextra2.setVisible(false);
+                   lblSEntrega.setVisible(true);
+                   txtSEntrega.setVisible(true);
+                   tblSRecientes.setVisible(false);
+                   scrSRecientes.setVisible(false);
+                   btnSSeleccionar.setVisible(false);
+                   break;
+        }
+    }
+    public void limpiarServicio(){
+        txtSHoraI.setText("");
+        txtSHoraT.setText("");
+        cbxSHora.setSelectedIndex(0);
+        cbxSTipo.setSelectedIndex(0);
+        txtSFecha1.setText("");
+        txtSFecha2.setText("");
+        txtSFecha3.setText("");
+        txtSEntrega.setText("");
+        txtSNombres.setText("");
+        txtSApellidoPat.setText("");
+        txtSApellidoMat.setText("");
+        txtSTelefono.setText("");
+        txtSDireccion1.setText("");
+        txtSDireccion2.setText("");
+        txtSCorreo.setText("");
+        txtSPrecioH.setText("");
+    }
+    public void Asistencia(boolean logico,boolean docente,boolean admi){
+        btnAsistenciaAlumnos.setVisible(logico);
+        btnAsistenciaDocentes.setVisible(logico);
+        btnAsistenciaAdministrativa.setVisible(logico);
+        lblAsistencia.setVisible(logico);
+        lblAsistenciaAD.setVisible(!logico);
+        tblAsistencia.setVisible(!logico);
+        ScrollAsistencia.setVisible(!logico);
+        txtCodigo.setVisible(!logico);
+        lblCodigo.setVisible(!logico);
+        txtNombreAsis.setVisible(!logico);
+        lblNombreAsis.setVisible(!logico);
+        txtApellidoPatAsis.setVisible(!logico);
+        lblPreparacionAsis.setVisible(!logico);
+        btnRegresar.setVisible(!logico);
+        lblSalonAsis.setVisible(!logico);
+        txtSalonAsis.setVisible(!logico);
+        lblApellidoPatAsis.setVisible(!logico);
+        txtApellidoMatAsis.setVisible(!logico);
+        lblApellidoMatAsis.setVisible(!logico);
+        txtPreparacionAsis.setVisible(!logico);
+        lblMes.setVisible(!logico);
+        lblModoBusqueda.setVisible(!logico);
+        cbxModoBusqueda.setVisible(!logico);
+        btnLimpiar.setVisible(!logico);
+        btnBusqueda.setVisible(false);
+        btnFaltantes.setVisible(false);
+        btnAnterior.setVisible(!logico);
+        btnSiguiente.setVisible(!logico);
+        btnActual.setVisible(!logico);
+        if(!logico){
+            lblMes.setText(ObtenerMes(Integer.parseInt(M),Integer.parseInt(A)));
+        }
+        if(admi){
+            lblSalonAsis.setVisible(logico);
+            txtSalonAsis.setVisible(logico);
+        }
+        focusBusqueda();
+    }
+    public void Registro(boolean logico, boolean datos,boolean registro){
+        lblDocentesD.setVisible(logico);
+        btnRAlumnos.setVisible(logico);
+        btnRDocente.setVisible(logico);
+        btnRAdministrativa.setVisible(logico);
+        btnRegresarD.setVisible(!logico);
+        lblNCodigoD.setVisible(!logico);
+        txtRCodigo.setVisible(!logico);
+        lblNNombreD.setVisible(!logico);
+        txtRNombre.setVisible(!logico);
+        lblNApellidoPatD.setVisible(!logico);
+        txtRApellidoPat.setVisible(!logico);
+        lblNApellidoMatD.setVisible(!logico);
+        txtRApellidoMat.setVisible(!logico);
+        lblNNacimientoD.setVisible(!logico);
+        txtRNacimiento.setVisible(!logico);
+        lblNDireccionD.setVisible(!logico);
+        txtRDireccion1.setVisible(!logico);
+        txtRDireccion2.setVisible(!logico);
+        lblNTelefonoD.setVisible(!logico);
+        txtRTelefono.setVisible(!logico);
+        lblNCorreoD.setVisible(!logico);
+        txtRCorreo.setVisible(!logico);
+        lblNRucD.setVisible(!logico);
+        txtRucGH.setVisible(!logico);
+        lblNSueldoHoraD.setVisible(!logico);
+        txtRSueldoHora.setVisible(!logico);
+        lblNServicioD.setVisible(!logico);
+        cbxRServicio.setVisible(!logico);
+        SANMateriasD.setVisible(!logico);
+        txtRMaterias.setVisible(!logico);
+        lblNRegistroD.setVisible(!logico);
+        lblMatAsignadasD.setVisible(!logico);
+        
+        if(registro){
+            lblNRegistroD.setText("REGISTRO DE DOCENTES");
+            btnNRegistrarD.setVisible(!logico);
+            lblNMateriasD.setVisible(!logico);
+            cbxRMaterias.setVisible(!logico);
+        }
+        if(datos){
+            lblNRegistroD.setText("DATOS DE DOCENTES");
+            lblMatAsignadasD.setVisible(!logico);
+            lblNCodigoD.setVisible(!logico);
+            txtRCodigo.setEditable(logico);
+            txtRNombre.setEditable(logico);
+            txtRApellidoPat.setEditable(logico);
+            txtRApellidoMat.setEditable(logico);
+            txtRNacimiento.setEditable(logico);
+            txtRDireccion1.setEditable(logico);
+            txtRDireccion2.setEditable(logico);
+            txtRTelefono.setEditable(logico);
+            txtRCorreo.setEditable(logico);
+            txtRucGH.setEditable(logico);
+            txtRSueldoHora.setEditable(logico);
+            txtRMaterias.setEditable(logico);
+        }
+            
+    }
+    
+    
+    public void Alumnos(boolean logico, boolean datos, boolean registro){
+        lblAlumnos.setVisible(logico);
+        btnDAlumnos.setVisible(logico);
+        btnDDocentes.setVisible(logico);
+        lblNCodigoA.setVisible(!logico);
+            txtNCodigoA.setVisible(!logico);
+            lblNNombreA.setVisible(!logico);
+            txtNNombreA.setVisible(!logico);
+            lblNApellidoPatA.setVisible(!logico);
+            txtNApellidoPatA.setVisible(!logico);
+            lblNApellidoMatA.setVisible(!logico);
+            txtNApellidoMatA.setVisible(!logico);
+            lblNNacimientoA.setVisible(!logico);
+            txtNNacimientoA.setVisible(!logico);
+            lblNDireccionA.setVisible(!logico);
+            txtNDireccion1A.setVisible(!logico);
+            txtNDireccion2A.setVisible(!logico);
+            lblNTelefonoA.setVisible(!logico);
+            txtNTelefonoA.setVisible(!logico);
+            lblNCorreoA.setVisible(!logico);
+            txtNCorreoA.setVisible(!logico);
+            btnRegresarA.setVisible(!logico);
+            btnRegistrarA.setVisible(false);
+            lblDUltNotaObtA.setVisible(false);
+            txtDUltNotaObtA.setVisible(false);
+            btnDVerNotasA.setVisible(false);
+            lblNPreparacionA.setVisible(!logico);
+            cbxNPreparacionA.setVisible(false);
+            txtDPreparacionA.setVisible(false);
+            lblAlumnosDR.setVisible(!logico);
+        if(datos){
+            lblAlumnosDR.setText("DATOS DE ALUMNOS");
+            txtDUltNotaObtA.setVisible(!logico);
+            lblDUltNotaObtA.setVisible(!logico);
+            btnDVerNotasA.setVisible(!logico);
+            txtDPreparacionA.setVisible(!logico);
+        }
+        if(registro){
+            lblAlumnosDR.setText("REGISTRO DE ALUMNOS");
+            btnRegistrarA.setVisible(!logico);
+            cbxNPreparacionA.setVisible(!logico);
+        }
+    }
+    public String ObtenerMes(int mes,int año){
+        String mesobtenido="";
+        switch(mes){
+            case 0:mesobtenido="Enero ";break;
+            case 1:mesobtenido="Febrero ";break;
+            case 2:mesobtenido="Marzo ";break;
+            case 3:mesobtenido="Abril ";break;
+            case 4:mesobtenido="Mayo ";break;
+            case 5:mesobtenido="Junio ";break;
+            case 6:mesobtenido="Julio ";break;
+            case 7:mesobtenido="Agosto ";break;
+            case 8:mesobtenido="Septiembre ";break;
+            case 9:mesobtenido="Octubre ";break;
+            case 10:mesobtenido="Noviembre ";break;
+            case 11:mesobtenido="Diciembre ";break;
+        }
+        mesobtenido+=String.valueOf(año);
+        return mesobtenido;
+    }
+    public int maximodia(int mes,int año){
+        int maximo=0;
+        switch(mes){
+            case 0:
+            case 2:
+            case 4:
+            case 6:
+            case 7:
+            case 9:
+            case 11: maximo=31; break;
+            case 1: if(año%4==0)
+                      maximo=29;
+                    else
+                      maximo=28;
+                    break;
+            case 3:
+            case 5:
+            case 8:
+            case 10:maximo=30;break;
+        }
+        return maximo;
+    }
+    public void focusBusqueda(){
+        switch(cbxModoBusqueda.getSelectedIndex()){
+            case 0:txtCodigo.setEditable(true);
+                   txtCodigo.requestFocus(true);
+                   txtNombreAsis.setEditable(false);
+                   txtApellidoPatAsis.setEditable(false);
+                   txtApellidoMatAsis.setEditable(false);
+                   break;
+            case 1:txtCodigo.setEditable(false);
+                   txtNombreAsis.setEditable(true);
+                   txtNombreAsis.requestFocus(true);
+                   txtApellidoPatAsis.setEditable(false);
+                   txtApellidoMatAsis.setEditable(false);
+                   break;
+            case 2:txtCodigo.setEditable(false);
+                   txtNombreAsis.setEditable(false);
+                   txtApellidoPatAsis.setEditable(true);
+                   txtApellidoPatAsis.requestFocus(true);
+                   txtApellidoMatAsis.setEditable(false);
+                   break;
+            case 3:txtCodigo.setEditable(false);
+                   txtNombreAsis.setEditable(false);
+                   txtApellidoPatAsis.setEditable(false);
+                   txtApellidoMatAsis.setEditable(true);
+                   txtApellidoMatAsis.requestFocus(true);
+                   break;
+        }
+    }
+    public void calendario(){
+        lblMes.setText(ObtenerMes(Integer.parseInt(M),Integer.parseInt(A)));
+        System.out.println("semana="+(WeekofMonth));
+        System.out.println("diadelasemana="+(DayofWeek-1));
+        tblAsistencia.setValueAt(D,WeekofMonth-1,DayofWeek-1);
+        int dia,semana,diadelasemana;
+        dia=Integer.parseInt(D);
+        semana=WeekofMonth-1;
+        diadelasemana=DayofWeek-1;
+        
+        outerloop:
+            do{
+                do{
+                    if(diadelasemana==-1){
+                        diadelasemana=6;
+                    }
+                    tblAsistencia.setValueAt(dia,semana,diadelasemana);
+                    diadelasemana--;
+                    dia--;
+                    if(dia<1){
+                         if(diadelasemana==-1){
+                             diadelasemana=6;
+                         }
+                         ColumnAntAux=diadelasemana;
+                         System.out.println(ColumnAntAux);
+                         break outerloop;
+                    }
+               }while(diadelasemana>=0);
+               semana--;
+            }while(dia>0);
+        dia=Integer.parseInt(D);
+        semana=WeekofMonth-1;
+        diadelasemana=DayofWeek-1;
+        outerloop2:
+            while(dia<=maximodia(Integer.parseInt(M),Integer.parseInt(A))){
+                do{
+                    if(diadelasemana==7){
+                        diadelasemana=0;
+                    }
+                    tblAsistencia.setValueAt(dia,semana,diadelasemana);
+                    diadelasemana++;
+                    dia++;
+                    if(dia>maximodia(Integer.parseInt(M),Integer.parseInt(A))){
+                        if(diadelasemana==-1){
+                            diadelasemana=6;
+                        }
+                        ColumnSigAux=diadelasemana;
+                        System.out.println(ColumnSigAux);
+                        break outerloop2;
+                    }
+                }while(diadelasemana<=6);
+                semana++;
+            }
+    }
+    public void limpiarCalendario(){
+        for(int i=0;i<=5;i++){
+            for(int j=0;j<=6;j++){
+                tblAsistencia.setValueAt("",i,j);
+            }
+        }   
+    }
+    public void CalendarioAnterior(){
+        int filaaux=5;
+        do{
+            lblMes.setText(ObtenerMes(MesAux,AAux));
+            limpiarCalendario();         
+            int dias=maximodia(MesAux,AAux);
+            int columna=ColumnAntAux,fila=filaaux;
+            ColumnSigAux=ColumnAntAux+1;
+            if(ColumnAntAux==0){
+                ColumnSigAux=6;
+            }
+            outerloop3:
+            do{
+                if(fila!=filaaux){
+                   columna=6;
+                }
+                do{
+                    tblAsistencia.setValueAt(dias,fila,columna);
+                    columna--;
+                    dias--;
+                    if(dias==0){
+                        if(columna==-1){
+                            columna=6;
+                        }
+                        if(revision()==false){
+                            ColumnAntAux=columna;
+                        }
+                        break outerloop3;
+                    }
+                }while(columna>=0);
+                fila--;
+            }while(dias>=0);
+            if(revision()){
+                filaaux--;
+            }
+        }while(revision());
+    }
+    public boolean revision(){
+        boolean revisar=true;
+        for(int i=6;i>=0;i--){
+                revisar=revisar&&(tblAsistencia.getValueAt(0,i)=="");
+        }
+        return revisar;
+    }
+    public void CalendarioSiguiente(){
+            lblMes.setText(ObtenerMes(MesAux,AAux));
+            limpiarCalendario();         
+            int diafinal=maximodia(MesAux,AAux),dias=1;
+            int columna=ColumnSigAux,fila=0;
+            ColumnAntAux=ColumnSigAux-1;
+            if(ColumnSigAux==6){
+                ColumnAntAux=0;
+            }
+            System.out.println("Boton Siguiente ColumnAntAux="+ColumnAntAux);
+            outerloop3:
+            do{
+                if(fila!=0){
+                   columna=0;
+                }
+                do{
+                    tblAsistencia.setValueAt(dias,fila,columna);
+                    columna++;
+                    dias++;
+                    if(dias>diafinal){
+                        if(columna==7){
+                            columna=0;
+                        }
+                        if(revision()==false){
+                            ColumnSigAux=columna;
+                            System.out.println("Boton Siguiente ColumnSigAux="+ColumnSigAux);
+                        }
+                        break outerloop3;
+                    }
+                }while(columna<7);
+                fila++;
+            }while(dias<=diafinal);
+    }
+    public void cambiodedia(){
+        switch(DayofWeek){
+            case 1:DayofWeek=7;break;
+            case 2:DayofWeek=1;break;
+            case 3:DayofWeek=2;break;
+            case 4:DayofWeek=3;break;
+            case 5:DayofWeek=4;break;
+            case 6:DayofWeek=5;break;
+            case 7:DayofWeek=6;break;
+        }
+    }
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Academia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Academia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Academia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Academia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+
+            public void run() {
+                new Academia().setVisible(true);
+            }
+        });
+    }
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem MenuMaterias;
+    private javax.swing.JMenu MenuOpciones;
+    private javax.swing.JMenuItem MenuPrecios;
+    private javax.swing.JMenuItem MenuSalones;
+    private javax.swing.JScrollPane SANMateriasD;
+    private javax.swing.JScrollPane ScrollAsistencia;
+    private javax.swing.JButton btnActual;
+    private javax.swing.JButton btnAnterior;
+    private javax.swing.JButton btnAsistenciaAdministrativa;
+    private javax.swing.JButton btnAsistenciaAlumnos;
+    private javax.swing.JButton btnAsistenciaDocentes;
+    private javax.swing.JButton btnBusqueda;
+    private javax.swing.JButton btnDAdministrativa;
+    private javax.swing.JButton btnDAlumnos;
+    private javax.swing.JButton btnDDocentes;
+    private javax.swing.JButton btnDVerNotasA;
+    private javax.swing.JButton btnFaltantes;
+    private javax.swing.JButton btnIngresosB;
+    private javax.swing.JButton btnLimpiar;
+    private javax.swing.JButton btnNRegistrarD;
+    private javax.swing.JButton btnRAdministrativa;
+    private javax.swing.JButton btnRAlumnos;
+    private javax.swing.JButton btnRDocente;
+    private javax.swing.JButton btnRegistrarA;
+    private javax.swing.JButton btnRegresar;
+    private javax.swing.JButton btnRegresarA;
+    private javax.swing.JButton btnRegresarD;
+    private javax.swing.JButton btnSRegistrar;
+    private javax.swing.JButton btnSSeleccionar;
+    private javax.swing.JButton btnSiguiente;
+    private javax.swing.JComboBox cbxModoBusqueda;
+    private javax.swing.JComboBox cbxNPreparacionA;
+    private javax.swing.JComboBox cbxRMaterias;
+    private javax.swing.JComboBox cbxRServicio;
+    private javax.swing.JComboBox cbxSHora;
+    private javax.swing.JComboBox cbxSServicio;
+    private javax.swing.JComboBox cbxSTipo;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JLayeredPane jLayeredPane2;
+    private javax.swing.JLayeredPane jLayeredPane3;
+    private javax.swing.JLayeredPane jLayeredPane4;
+    private javax.swing.JLayeredPane jLayeredPane5;
+    private javax.swing.JLayeredPane jLayeredPane6;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JLabel lblAcademiaB;
+    private javax.swing.JLabel lblAlumnos;
+    private javax.swing.JLabel lblAlumnosDR;
+    private javax.swing.JLabel lblApellidoMatAsis;
+    private javax.swing.JLabel lblApellidoPatAsis;
+    private javax.swing.JLabel lblAsesoriaB;
+    private javax.swing.JLabel lblAsistencia;
+    private javax.swing.JLabel lblAsistenciaAD;
+    private javax.swing.JLabel lblCodigo;
+    private javax.swing.JLabel lblDAcademiaB;
+    private javax.swing.JLabel lblDAsesoriaB;
+    private javax.swing.JLabel lblDParticularesB;
+    private javax.swing.JLabel lblDUltNotaObtA;
+    private javax.swing.JLabel lblDocentesD;
+    private javax.swing.JLabel lblMatAsignadasD;
+    private javax.swing.JLabel lblMes;
+    private javax.swing.JLabel lblModoBusqueda;
+    private javax.swing.JLabel lblNApellidoMatA;
+    private javax.swing.JLabel lblNApellidoMatD;
+    private javax.swing.JLabel lblNApellidoPatA;
+    private javax.swing.JLabel lblNApellidoPatD;
+    private javax.swing.JLabel lblNCodigoA;
+    private javax.swing.JLabel lblNCodigoD;
+    private javax.swing.JLabel lblNCorreoA;
+    private javax.swing.JLabel lblNCorreoD;
+    private javax.swing.JLabel lblNDireccionA;
+    private javax.swing.JLabel lblNDireccionD;
+    private javax.swing.JLabel lblNMateriasD;
+    private javax.swing.JLabel lblNNacimientoA;
+    private javax.swing.JLabel lblNNacimientoD;
+    private javax.swing.JLabel lblNNombreA;
+    private javax.swing.JLabel lblNNombreD;
+    private javax.swing.JLabel lblNPreparacionA;
+    private javax.swing.JLabel lblNRegistroD;
+    private javax.swing.JLabel lblNRucD;
+    private javax.swing.JLabel lblNServicioD;
+    private javax.swing.JLabel lblNSueldoHoraD;
+    private javax.swing.JLabel lblNTelefonoA;
+    private javax.swing.JLabel lblNTelefonoD;
+    private javax.swing.JLabel lblNombreAsis;
+    private javax.swing.JLabel lblPAcademia;
+    private javax.swing.JLabel lblPAnual;
+    private javax.swing.JLabel lblPAsesoria;
+    private javax.swing.JLabel lblPIntensivo;
+    private javax.swing.JLabel lblPNormal;
+    private javax.swing.JLabel lblPSemestral;
+    private javax.swing.JLabel lblParticularesB;
+    private javax.swing.JLabel lblPrecio;
+    private javax.swing.JLabel lblPrecioAnual;
+    private javax.swing.JLabel lblPrecioAsesoria;
+    private javax.swing.JLabel lblPrecioIntensivo;
+    private javax.swing.JLabel lblPrecioNormal;
+    private javax.swing.JLabel lblPreparacionAsis;
+    private javax.swing.JLabel lblSApellidoMat;
+    private javax.swing.JLabel lblSApellidoPat;
+    private javax.swing.JLabel lblSCorreo;
+    private javax.swing.JLabel lblSDireccion;
+    private javax.swing.JLabel lblSEntrega;
+    private javax.swing.JLabel lblSFecha;
+    private javax.swing.JLabel lblSHoraI;
+    private javax.swing.JLabel lblSHoraT;
+    private javax.swing.JLabel lblSHorario;
+    private javax.swing.JLabel lblSNombre;
+    private javax.swing.JLabel lblSPrecioH;
+    private javax.swing.JLabel lblSServicio;
+    private javax.swing.JLabel lblSTelefono;
+    private javax.swing.JLabel lblSalonAsis;
+    private javax.swing.JLabel lblTEgresosB;
+    private javax.swing.JLabel lblTIngresos;
+    private javax.swing.JLabel lblextra1;
+    private javax.swing.JLabel lblextra2;
+    private javax.swing.JPanel pnlAsistencia;
+    private javax.swing.JPanel pnlBalance;
+    private javax.swing.JPanel pnlBienvenido;
+    private javax.swing.JPanel pnlDatos;
+    private javax.swing.JTabbedPane pnlPestañas;
+    private javax.swing.JPanel pnlPrecios;
+    private javax.swing.JPanel pnlRegistro;
+    private javax.swing.JPanel pnlServicios;
+    private javax.swing.JScrollPane scrSRecientes;
+    private javax.swing.JTable tblAsistencia;
+    private javax.swing.JTable tblSRecientes;
+    private javax.swing.JFormattedTextField txtAcademiaB;
+    private javax.swing.JTextField txtApellidoMatAsis;
+    private javax.swing.JTextField txtApellidoPatAsis;
+    private javax.swing.JFormattedTextField txtAsesoriaB;
+    private javax.swing.JTextField txtCodigo;
+    private javax.swing.JFormattedTextField txtDAcademiaB;
+    private javax.swing.JFormattedTextField txtDAsesoriaB;
+    private javax.swing.JFormattedTextField txtDParticularesB;
+    private javax.swing.JTextField txtDPreparacionA;
+    private javax.swing.JTextField txtDUltNotaObtA;
+    private javax.swing.JTextField txtNApellidoMatA;
+    private javax.swing.JTextField txtNApellidoPatA;
+    private javax.swing.JTextField txtNCodigoA;
+    private javax.swing.JTextField txtNCorreoA;
+    private javax.swing.JTextField txtNDireccion1A;
+    private javax.swing.JTextField txtNDireccion2A;
+    private javax.swing.JTextField txtNNacimientoA;
+    private javax.swing.JTextField txtNNombreA;
+    private javax.swing.JTextField txtNTelefonoA;
+    private javax.swing.JTextField txtNombreAsis;
+    private javax.swing.JFormattedTextField txtParticularesB;
+    private javax.swing.JTextField txtPreparacionAsis;
+    private javax.swing.JTextField txtRApellidoMat;
+    private javax.swing.JTextField txtRApellidoPat;
+    private javax.swing.JTextField txtRCodigo;
+    private javax.swing.JTextField txtRCorreo;
+    private javax.swing.JTextField txtRDireccion1;
+    private javax.swing.JTextField txtRDireccion2;
+    private javax.swing.JTextArea txtRMaterias;
+    private javax.swing.JTextField txtRNacimiento;
+    private javax.swing.JTextField txtRNombre;
+    private javax.swing.JTextField txtRSueldoHora;
+    private javax.swing.JTextField txtRTelefono;
+    private javax.swing.JTextField txtRucGH;
+    private javax.swing.JTextField txtSApellidoMat;
+    private javax.swing.JTextField txtSApellidoPat;
+    private javax.swing.JTextField txtSCorreo;
+    private javax.swing.JTextField txtSDireccion1;
+    private javax.swing.JTextField txtSDireccion2;
+    private javax.swing.JTextField txtSEntrega;
+    private javax.swing.JTextField txtSFecha1;
+    private javax.swing.JTextField txtSFecha2;
+    private javax.swing.JTextField txtSFecha3;
+    private javax.swing.JTextField txtSHoraI;
+    private javax.swing.JTextField txtSHoraT;
+    private javax.swing.JTextField txtSNombres;
+    private javax.swing.JTextField txtSPrecioH;
+    private javax.swing.JTextField txtSTelefono;
+    private javax.swing.JTextField txtSalonAsis;
+    private javax.swing.JFormattedTextField txtTEgresosB;
+    private javax.swing.JFormattedTextField txtTIngresosB;
+    // End of variables declaration//GEN-END:variables
+}
